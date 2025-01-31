@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>LS-BANK</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <svg height="40" viewBox="-3 -3 82 82" width="40" style="display: block">
+                    <title>LS-BANK logo</title>
+                    <image width="80" height="80" href="{{ url_for('static', filename='fotos_site/logo.png') }}" />
+                </svg>
+                <h1>LS BANK</h1>
+            </div>
+            <div class="restante-nav">
+                <!-- Se houver links de navegação, adicione aqui -->
+                <!-- Exemplo de link: <a href="#">Link</a> -->
+            </div>
+        </nav>
+    </header>
+    <div class="container-popup">
+        <form method="POST" class="popup">
+            {{ form.csrf_token }}
+            
+            <svg height="40" viewBox="-3 -3 82 82" width="40" style="display: block">
+                <title>LS-BANK logo</title>
+                <image width="80" height="80" href="static/fotos_site/logo.png" />
+            </svg>
+
+            <h2>Bem-vindo(a) ao LS-BANK</h2>
+
+            <div class="div-input">
+                {{ form.email.label(class="label") }}
+                {{ form.email(class="input") }}
+            </div>
+
+            <div class="div-input">
+                {{ form.senha.label(class="label") }}
+                {{ form.senha(class="input") }}
+            </div>
+
+            <div class="div-botao">
+                {{ form.botao_confirmacao(class="botao-login") }}
+                <a href="{{ url_for('criar_conta') }}" class="link-criarconta">Não tem uma conta? Crie aqui</a>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul>
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </form>
+    </div>
+
+</body>
+</html>
