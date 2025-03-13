@@ -35,7 +35,7 @@ BankApp é um sistema bancário simples, construído com Flask, onde os usuário
 ### 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/bankapp.git
+git clone https://github.com/Samuel-Gaudencio/bankapp.git
 cd bankapp
 ```
 
